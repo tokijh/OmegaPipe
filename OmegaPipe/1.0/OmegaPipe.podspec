@@ -11,5 +11,5 @@ Pod::Spec.new do |spec|
   spec.source       = { :git => "https://github.com/tokijh/OmegaPipe.git", :tag => spec.version.to_s }
   spec.source_files  = "OmegaPipe/**/*.swift"
   spec.frameworks  = "Foundation"
-  spec.dependency "RxSwift", "~> 4.0.0"
+  spec.dependency "RxSwift", "~> 4.0"
 end
