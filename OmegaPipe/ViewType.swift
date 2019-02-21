@@ -25,7 +25,7 @@ public protocol ViewType: AssociatedObjectStore {
 extension ViewType {
     public var viewModel: ViewModel {
         get {
-            guard let viewModel: ViewModel = associatedObject(forKey: &AssociatedKey.viewModel) else {
+            guard let viewModel = viewModelSafety else {
                 fatalError("ViewModel must be set before viewModel is called")
             }
             return viewModel
@@ -37,6 +37,8 @@ extension ViewType {
             bind(output: output)
         }
     }
+    
+    public var viewModelSafety: ViewModel? { return associatedObject(forKey: &AssociatedKey.viewModel) }
 }
 
 extension ViewType where Self: Initable {
